@@ -3,8 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 password = 'debug%40123' 
-URL_DATABASE = f'mysql+pymysql://root:{password}@localhost:3306/customer'
-# URL_DATABASE = 'mysql://root:kaweZQsznyOTKrEUBzqHcxsshumqjzZy@trolley.proxy.rlwy.net:34059/railway'
+# URL_DATABASE = f'mysql+pymysql://root:{password}@localhost:3306/customer'
+URL_DATABASE = 'mysql://root:duJTWqqqYbceDpETwCufcxirGEGHBHmg@yamabiko.proxy.rlwy.net:16263/railway'
 
 engine = create_engine(URL_DATABASE)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
