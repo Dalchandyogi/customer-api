@@ -31,7 +31,7 @@ def create_customer(customer: schema.CustomerCreate, db: Session = Depends(get_d
         return JSONResponse(
             status_code=status.HTTP_201_CREATED,
             content={
-                "status": 201,
+                "statusCode": 201,
                 "message": "Customer added successfully",
                 "customer_id": db_customer.id
             }
@@ -41,7 +41,7 @@ def create_customer(customer: schema.CustomerCreate, db: Session = Depends(get_d
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={
-                "status": 400,
+                "statusCode": 400,
                 "message": "Failed to add customer",
                 "details": str(e.__cause__)
             }
