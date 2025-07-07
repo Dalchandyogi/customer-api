@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException, Request 
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
@@ -24,6 +23,17 @@ async def upload_customer_doc(
     db: Session = Depends(get_db),
     request: Request = Request 
 ):
+    # Check if customer exists
+    from models.customer_details import Customer
+    customer = db.query(Customer).filter(Customer.id == customer_id).first()
+    if not customer:
+        return JSONResponse(
+            status_code=404,
+            content={
+                "status": 404,
+                "error": "The given customer ID is not found. Please Provide right customer ID."
+            }
+        )
     if file.content_type not in ["image/jpeg", "image/png"]:
         return JSONResponse(
             status_code=400,
