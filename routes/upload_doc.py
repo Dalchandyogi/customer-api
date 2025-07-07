@@ -30,7 +30,7 @@ async def upload_customer_doc(
         return JSONResponse(
             status_code=404,
             content={
-                "status": 404,
+                "statusCode": 404,
                 "error": "The given customer ID is not found. Please Provide right customer ID."
             }
         )
@@ -38,7 +38,7 @@ async def upload_customer_doc(
         return JSONResponse(
             status_code=400,
             content={
-                "status": 400,
+                "statusCode": 400,
                 "error": "Invalid file type. Only JPEG and PNG images are allowed."
             }
         )
@@ -72,7 +72,7 @@ async def upload_customer_doc(
     db.refresh(new_doc)
 
     return {
-        "status": 200,
+        "statusCode": 200,
         "message": "Document uploaded successfully",
         "doc_id": new_doc.id,
         "customer_id": new_doc.customer_id,
