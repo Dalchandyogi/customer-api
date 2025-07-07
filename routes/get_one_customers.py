@@ -1,5 +1,5 @@
 # routes/get_one_customers.py
-from fastapi import APIRouter, Depends, Header, status, Request # Keep Header
+from fastapi import APIRouter, Depends, Header, status, Request 
 from fastapi.params import Query
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session, joinedload
@@ -14,7 +14,7 @@ router = APIRouter()
 @router.get("/get-one-customer", response_model=CustomerResponse)
 def get_customer_by_id(
     request: Request,
-    customer_id: int = Query(..., alias="customer_id"), # Changed back to Header
+    customer_id: int = Query(..., alias="customer_id"), 
     db: Session = Depends(get_db)
 ):
     customer = db.query(Customer).options(
@@ -28,7 +28,7 @@ def get_customer_by_id(
         return JSONResponse(
             status_code=status.HTTP_404_NOT_FOUND,
             content={
-                "status": 404,
+                "statusCode": 404,
                 "message": "Customer not found for the given ID"
             }
         )
