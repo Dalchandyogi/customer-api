@@ -20,7 +20,7 @@ def update_customer(
         return JSONResponse(
             status_code=status.HTTP_404_NOT_FOUND,
             content={
-                "status_code": 404,
+                "statusCode": 404,
                 "error": "Not Found the Customer for the given ID"
             }
         )
@@ -49,7 +49,7 @@ def update_customer(
         return JSONResponse(
             status_code=status.HTTP_200_OK,
             content={
-                "status_code": 200,
+                "statusCode": 200,
                 "message": "Customer updated successfully",
             }
         )
@@ -59,7 +59,7 @@ def update_customer(
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={
-                "status_code": 400,
+                "statusCode": 400,
                 "error": f"Failed to update customer: {str(e.__cause__)}"
             }
         )
