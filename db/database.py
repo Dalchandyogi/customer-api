@@ -2,11 +2,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# password = 'debug%40123' 
-# URL_DATABASE = f'mysql+pymysql://root:{password}@localhost:3306/customer'
-# URL_DATABASE = 'mysql://root:duJTWqqqYbceDpETwCufcxirGEGHBHmg@yamabiko.proxy.rlwy.net:16263/railway'
-URL_DATABASE = 'mysql+pymysql://root:duJTWqqqYbceDpETwCufcxirGEGHBHmg@yamabiko.proxy.rlwy.net:16263/railway'
 
+password = 'Debug%402006'
+user = 'u604935531_dalchandyogi'
+host = 'srv1872.hstgr.io'  
+port = 3306
+db_name = 'u604935531_customers'
+
+URL_DATABASE = f"mysql+pymysql://{user}:{password}@{host}:{port}/{db_name}"
 
 engine = create_engine(URL_DATABASE)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
